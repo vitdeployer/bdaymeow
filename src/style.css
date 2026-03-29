@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #ffd1dc; /* Pastel pink fallback base */
+  font-family: 'Nunito', sans-serif;
+}
+
+#app-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+#ui-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Let clicks pass through to canvas later */
+  background: radial-gradient(circle, rgba(255,182,193,0.5) 0%, rgba(135,206,235,0.2) 100%);
+  transition: opacity 1.5s ease;
+}
+
+#ui-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.text-glow {
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.8),
+               0 0 20px rgba(255, 105, 180, 0.6),
+               0 0 30px rgba(135, 206, 235, 0.4);
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
